@@ -30,6 +30,7 @@ def check_with_timestamp(id_record, time_sleeping=config.time_sleeping):
         requests.get(f"{config.webhook_ip}", params=params)
 
 
+
 @app.route('/', methods=['GET', 'POST'])
 def base():
     params = dict(request.args)
