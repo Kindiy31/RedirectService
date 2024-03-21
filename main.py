@@ -22,9 +22,10 @@ def check_with_timestamp(id_record, time_sleeping=config.time_sleeping):
             is_join = moderator.check_link(link)
         except:
             is_join = False
-        dbase.set_new_join(is_join=is_join, id_record=id_record)
+        record_time = dbase.set_new_join(is_join=is_join, id_record=id_record)
         params = record.get('params')
         params = json.loads(params)
+        params['time'] = record_time
         logger.info(f"Записав дані, is_join = {is_join}")
         requests.get(f"{config.webhook_ip}", params=params)
 
@@ -33,7 +34,6 @@ def check_with_timestamp(id_record, time_sleeping=config.time_sleeping):
 def base():
     params = dict(request.args)
     new_params = {
-        "time": config.time_sleeping
     }
     for param in config.params:
         new_params[param] = params.get(param)

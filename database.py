@@ -136,9 +136,11 @@ class Database:
 
     @db_method_wrapper
     def set_new_join(self, is_join, id_record):
+        record_time = self.generate_time_now()
         self.update_sqlite(table="records", column="is_join", value=is_join, where=f"id_record={id_record}")
-        self.update_sqlite(table="records", column="checking_date", value=self.generate_time_now(),
+        self.update_sqlite(table="records", column="checking_date", value=record_time,
                            where=f"id_record={id_record}")
+        return record_time
 
 
 dbase = Database()
