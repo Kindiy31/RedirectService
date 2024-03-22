@@ -3,7 +3,7 @@ mysql_config = {
     "host": "localhost",
     "port": 3306,
     "user": "root",
-    "password": "1a2b345A",
+    "password": "redirect2203",
     "database": "redirect_service"
 }
 chat_id = -1002078266785
