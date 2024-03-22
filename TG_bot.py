@@ -10,7 +10,7 @@ moderator = ChannelModerator(bot=bot, chat_id=config.chat_id)
 link = moderator.create_invite_link()
 
 
-@bot.message_handler(content_types=['new_chat_members', 'left_chat_member'])
+@bot.message_handler(content_types=['new_chat_members', 'left_chat_member', 'new_chat_join_request'])
 def new_chat_members_handler(message):
     logger.info(f"Get new message and delete after: {message}")
     try:
