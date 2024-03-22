@@ -10,10 +10,14 @@ moderator = ChannelModerator(bot=bot, chat_id=config.chat_id)
 link = moderator.create_invite_link()
 
 
-@bot.message_handler(content_types=['new_chat_members'])
+@bot.message_handler(content_types=['new_chat_members', 'left_chat_member'])
 def new_chat_members_handler(message):
     logger.info(f"Get new message and delete after: {message}")
     try:
         bot.delete_message(chat_id=message.chat.id, message_id=message.id)
     except Exception as e:
         logger.error(f"Error delete message: {e}")
+
+
+if __name__ == "__main__":
+    bot.polling(True)
