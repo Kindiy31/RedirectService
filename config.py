@@ -6,7 +6,7 @@ mysql_config = {
     "password": "redirect2203",
     "database": "redirect_service"
 }
-chat_id = -1002078266785
+chat_id = -1002001943399
 params = [
     "gclid",
     "gbraid",
