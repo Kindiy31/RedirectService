@@ -9,6 +9,7 @@ import traceback
 class Database:
     def __init__(self):
         try:
+            logger.info(f"Connected with creds: {config.mysql_config}")
             self.con = pymysql.connect(**config.mysql_config)
 
         except pymysql.err.OperationalError as e:
