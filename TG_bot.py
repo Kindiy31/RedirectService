@@ -7,9 +7,8 @@ bot = telebot.TeleBot(config.TOKEN)
 bot.parse_mode = "HTML"
 
 moderator = ChannelModerator(bot=bot, chat_id=config.chat_id)
-link = moderator.create_invite_link()
 
-@bot.message_handler()
+@bot.message_handler(content_types=['text'])
 def other_messages(message):
     logger.info(f"Get new message and delete after: {message}")
     try:
@@ -17,7 +16,7 @@ def other_messages(message):
     except Exception as e:
         logger.error(f"Error delete message: {e}")
 
-@bot.message_handler(content_types=['new_chat_members'])
+@bot.message_handler(content_types=['new_chat_members', 'left_chat_member'])
 def new_chat_members_handler(message):
     logger.info(f"Get new message and delete after: {message}")
     try:
@@ -25,10 +24,3 @@ def new_chat_members_handler(message):
     except Exception as e:
         logger.error(f"Error delete message: {e}")
 
-
-
-
-
-if __name__ == "__main__":
-    logger.info(f"Starting bot")
-    bot.polling(True)

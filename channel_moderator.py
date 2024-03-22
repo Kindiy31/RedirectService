@@ -5,8 +5,11 @@ class ChannelModerator:
     def __init__(self, bot, chat_id):
         self.bot = bot
         self.chat_id = chat_id
-        self.chat = self.bot.get_chat(self.chat_id)
-        self.title = self.chat.title
+        try:
+            self.chat = self.bot.get_chat(self.chat_id)
+            self.title = self.chat.title
+        except:
+            pass
 
     def create_invite_link(self):
         invite_link = self.bot.create_chat_invite_link(chat_id=self.chat_id, member_limit=1)

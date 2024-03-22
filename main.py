@@ -47,7 +47,6 @@ def base():
 
 
 def run_bot():
-    return
     while True:
         try:
             logger.info(f"Starting bot {bot.get_my_name().name}")

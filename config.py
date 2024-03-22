@@ -1,4 +1,4 @@
-TOKEN = "813658551:AAG0IK7JfFy9ei-dT7qII-9O1y4v_TT5Ilw"
+TOKEN = "7078958798:AAHhAWGmoNpYk_Lc1sP6gEYJbYLVltIB90k"
 mysql_config = {
     "host": "localhost",
     "port": 3306,
