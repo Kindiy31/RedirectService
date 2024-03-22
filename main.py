@@ -52,7 +52,8 @@ def run_bot():
             logger.info(f"Starting bot {bot.get_my_name().name}")
             try:
                 bot.delete_webhook()
-            except:
+            except Exception as e:
+                logger.error(f"Cant delete webhook: {e}")
                 pass
             bot.polling(True)
         except Exception as e:
