@@ -50,6 +50,10 @@ def run_bot():
     while True:
         try:
             logger.info(f"Starting bot {bot.get_my_name().name}")
+            try:
+                bot.delete_webhook()
+            except:
+                pass
             bot.polling(True)
         except Exception as e:
             logger.error(f"!!! Error bot: {e}")
